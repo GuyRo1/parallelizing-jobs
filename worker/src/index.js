@@ -7,7 +7,7 @@ const performTasks = async (channel) => {
     const ok = await channel.assertQueue(queueName)
     channel.consume(queueName, msg => {
         if (msg !== null) {
-            console.log(msg.content.toString());
+            console.log(`performing task with input : ${msg.content.toString()}`);
             channel.ack(msg)
         }
     })

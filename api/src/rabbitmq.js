@@ -14,7 +14,7 @@ export const connectToQueueAndGetChannel = async () => {
 export const sendMessageToBatchesQueue = async (channel, messages) => {
     try {
         const batchesQueue = 'dbRange'
-        await channel.assertQueue('mongoDbBatches')
+        await channel.assertQueue(batchesQueue)
         for (let i = 0; i < messages.length; i++) {
             channel.sendToQueue(batchesQueue, Buffer.from(
                 messages[i]

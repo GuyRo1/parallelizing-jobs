@@ -11,7 +11,6 @@ const consumeIdBatchesAndSendTasksToQueue = async (rabbitMqChannels) => {
         rabbitMqChannels.getBatches.consume(documentsRangeQueue, async message => {
             try {
                 const { skip, limit } = JSON.parse(message.content.toString())
-                console.log(skip,limit);
                 const data = await Data.find().skip(skip).limit(limit)
                 const tasks = data.map(item => item.value)
                 await sendTaskToTasksQueue(rabbitMqChannels.sendTasks, tasks)
