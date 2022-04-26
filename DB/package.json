@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "generate":"node ./src/generateData.js",
+    "generate-random":"node ./src/generateDRandomData.js",
     "delete":"node ./src/deleteData.js"
   },
   "keywords": [],

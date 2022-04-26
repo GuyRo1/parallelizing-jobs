@@ -1,10 +1,12 @@
-import connectToDb from './db.js'
+ 
+
+ import connectToDb from './db.js'
 import Data from './model.js'
 
 const generateMockData = async () => {
 
     const data =
-        new Array(1000000).fill(0).map((item,index) => ({ value: index }))
+        new Array(1000000).fill(0).map(() => ({ value: Math.ceil(Math.random() * 1000) }))
    
 
     await connectToDb()
