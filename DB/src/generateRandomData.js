@@ -10,6 +10,7 @@ const generateMockData = async () => {
    
 
     await connectToDb()
+    console.log("adding allot of data to DB please be patient");
     await Data.insertMany(data)
     console.log("added data to mongodb");
 }
